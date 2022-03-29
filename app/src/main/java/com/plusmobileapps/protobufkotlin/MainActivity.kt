@@ -11,6 +11,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.plusmobileapps.protobufkotlin.ui.theme.ProtobufKotlinTheme
+import tutorial.dog
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -22,7 +23,10 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colors.background
                 ) {
-                    Greeting("Android")
+                    Greeting(dog {
+                        id = 3
+                        breedName = "Doodle"
+                    }.toString())
                 }
             }
         }
@@ -38,6 +42,9 @@ fun Greeting(name: String) {
 @Composable
 fun DefaultPreview() {
     ProtobufKotlinTheme {
-        Greeting("Android")
+        Greeting(dog {
+            id = 3
+            breedName = "Doodle"
+        }.toString())
     }
 }
