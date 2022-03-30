@@ -8,6 +8,7 @@ import io.ktor.server.application.*
 import io.ktor.server.plugins.*
 import io.ktor.server.response.*
 import io.ktor.server.routing.*
+import kotlinx.coroutines.delay
 import kotlinx.serialization.ExperimentalSerializationApi
 import kotlinx.serialization.protobuf.ProtoBuf
 import tutorial.dog
@@ -22,6 +23,7 @@ fun main() {
 
         install(Routing) {
             get("/dogs") {
+                delay(1000L) // artificial delay so loading can happen on the client
                 call.respondBytes(dogsResult {
                     dogs.add(dog {
                         id = 1
@@ -30,6 +32,10 @@ fun main() {
                     dogs.add(dog {
                         id = 2
                         breedName = "Pugs"
+                    })
+                    dogs.add(dog {
+                        id = 3
+                        breedName = "Corgi"
                     })
                 }.toByteArray(), ContentType.Application.ProtoBuf)
             }
