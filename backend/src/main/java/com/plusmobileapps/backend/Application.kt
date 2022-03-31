@@ -1,18 +1,18 @@
 package com.plusmobileapps.backend
 
+import io.ktor.client.*
+import io.ktor.client.engine.cio.*
 import io.ktor.server.engine.*
 import io.ktor.server.netty.*
 import io.ktor.http.*
 import io.ktor.serialization.kotlinx.*
+import io.ktor.serialization.kotlinx.json.*
 import io.ktor.server.application.*
 import io.ktor.server.plugins.*
-import io.ktor.server.response.*
 import io.ktor.server.routing.*
-import kotlinx.coroutines.delay
 import kotlinx.serialization.ExperimentalSerializationApi
+import kotlinx.serialization.json.Json
 import kotlinx.serialization.protobuf.ProtoBuf
-import tutorial.dog
-import tutorial.dogsResult
 
 @OptIn(ExperimentalSerializationApi::class)
 fun main() {
@@ -21,24 +21,17 @@ fun main() {
             serialization(ContentType.Application.ProtoBuf, ProtoBuf.Default)
         }
 
-        install(Routing) {
-            get("/dogs") {
-                delay(1000L) // artificial delay so loading can happen on the client
-                call.respondBytes(dogsResult {
-                    dogs.add(dog {
-                        id = 1
-                        breedName = "Doodles"
-                    })
-                    dogs.add(dog {
-                        id = 2
-                        breedName = "Pugs"
-                    })
-                    dogs.add(dog {
-                        id = 3
-                        breedName = "Corgi"
-                    })
-                }.toByteArray(), ContentType.Application.ProtoBuf)
+        val client = HttpClient(CIO) {
+            install(io.ktor.client.plugins.ContentNegotiation) {
+                json(Json {
+                    isLenient = true
+                    prettyPrint = true
+                })
             }
+        }
+
+        install(Routing) {
+            randomDogRoute(client)
         }
 
     }.start(wait = true)

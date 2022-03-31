@@ -1,6 +1,8 @@
 # Protobuf Kotlin Android Sample
 
-This is a sample project to showcase the new [Kotlin support for protocol buffers](https://developers.googleblog.com/2021/11/announcing-kotlin-support-for-protocol.html).
+This is a sample project to showcase the new [Kotlin support for protocol buffers](https://developers.googleblog.com/2021/11/announcing-kotlin-support-for-protocol.html). The data for the random dog is supplied by [https://dog.ceo/dog-api/](https://dog.ceo/dog-api/) with the [random dog API](https://dog.ceo/dog-api/documentation/random)
+
+![](docs/protobuf-dogs-demo.gif)
 
 ## Libraries 
 

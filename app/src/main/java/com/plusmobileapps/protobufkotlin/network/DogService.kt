@@ -5,7 +5,7 @@ import tutorial.DogOuterClass.DogsResult
 
 interface DogService {
 
-    @GET("/dogs")
+    @GET("/random-dog")
     suspend fun getDogs(): DogsResult
 
 }

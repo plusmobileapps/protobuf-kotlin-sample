@@ -1,5 +1,6 @@
 package com.plusmobileapps.protobufkotlin
 
+import android.media.Image
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -13,8 +14,11 @@ import androidx.compose.material.*
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
+import coil.compose.AsyncImage
 import com.plusmobileapps.protobufkotlin.ui.theme.ProtobufKotlinTheme
 import com.plusmobileapps.protobufkotlin.viewmodel.MainViewModel
 import com.plusmobileapps.protobufkotlin.viewmodel.MainViewModelFactory
@@ -69,8 +73,22 @@ fun DogList(dogs: List<Dog>) {
     LazyColumn {
         items(dogs) { dog ->
             Card(modifier = Modifier.fillMaxWidth()) {
-                Text(text = dog.breedName)
+                Column(horizontalAlignment = Alignment.CenterHorizontally) {
+                    AsyncImage(model = dog.breedName, placeholder = painterResource(id = android.R.drawable.ic_menu_report_image), contentDescription = null)
+                    Text(text = dog.breedName)
+                }
             }
         }
     }
+}
+
+@Preview
+@Composable
+fun DogListPreview() {
+    DogList(dogs = listOf(
+        dog {
+            id = 1
+            breedName = "Doodle"
+        }
+    ))
 }
