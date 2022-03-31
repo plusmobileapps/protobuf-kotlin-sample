@@ -17,7 +17,7 @@ This is a sample project to showcase the new [Kotlin support for protocol buffer
 ## Quick File Links
 
 * [Dog proto file](https://github.com/plusmobileapps/protobuf-kotlin-sample/blob/main/model/src/main/proto/dog.proto)
-* [Backend endpoint returning protobuf](https://github.com/plusmobileapps/protobuf-kotlin-sample/blob/main/backend/src/main/java/com/plusmobileapps/backend/Application.kt)
+* [Backend endpoint returning protobuf](https://github.com/plusmobileapps/protobuf-kotlin-sample/blob/main/backend/src/main/java/com/plusmobileapps/backend/DogRoute.kt)
 * Client [retrofit protobuf creation](https://github.com/plusmobileapps/protobuf-kotlin-sample/blob/main/app/src/main/java/com/plusmobileapps/protobufkotlin/di/DI.kt) and [DogService](https://github.com/plusmobileapps/protobuf-kotlin-sample/blob/main/app/src/main/java/com/plusmobileapps/protobufkotlin/network/DogService.kt)
 
 ## How to Run

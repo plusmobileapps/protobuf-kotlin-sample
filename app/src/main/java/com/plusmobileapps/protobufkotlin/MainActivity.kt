@@ -74,7 +74,7 @@ fun DogList(dogs: List<Dog>) {
         items(dogs) { dog ->
             Card(modifier = Modifier.fillMaxWidth()) {
                 Column(horizontalAlignment = Alignment.CenterHorizontally) {
-                    AsyncImage(model = dog.breedName, placeholder = painterResource(id = android.R.drawable.ic_menu_report_image), contentDescription = null)
+                    AsyncImage(model = dog.imageUrl, placeholder = painterResource(id = android.R.drawable.ic_menu_report_image), contentDescription = null)
                     Text(text = dog.breedName)
                 }
             }
