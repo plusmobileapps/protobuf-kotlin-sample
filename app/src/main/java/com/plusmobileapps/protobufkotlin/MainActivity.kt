@@ -21,14 +21,15 @@ import androidx.compose.ui.tooling.preview.Preview
 import coil.compose.AsyncImage
 import com.plusmobileapps.protobufkotlin.ui.theme.ProtobufKotlinTheme
 import com.plusmobileapps.protobufkotlin.viewmodel.MainViewModel
-import com.plusmobileapps.protobufkotlin.viewmodel.MainViewModelFactory
 import com.plusmobileapps.protobufkotlin.viewmodel.MainViewState
+import dagger.hilt.android.AndroidEntryPoint
 import tutorial.DogOuterClass.Dog
 import tutorial.dog
 
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
 
-    private val viewModel: MainViewModel by viewModels { MainViewModelFactory() }
+    private val viewModel: MainViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

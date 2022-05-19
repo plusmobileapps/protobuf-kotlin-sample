@@ -3,12 +3,14 @@ package com.plusmobileapps.protobufkotlin.viewmodel
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.plusmobileapps.protobufkotlin.network.DogService
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
 import tutorial.DogOuterClass
 import tutorial.DogOuterClass.Dog
 import tutorial.DogOuterClass.DogsResult
+import javax.inject.Inject
 
 sealed class MainViewState {
     object Loading : MainViewState()
@@ -16,7 +18,8 @@ sealed class MainViewState {
     data class Error(val message: String) : MainViewState()
 }
 
-class MainViewModel(private val api: DogService) : ViewModel() {
+@HiltViewModel
+class MainViewModel @Inject constructor(private val api: DogService) : ViewModel() {
 
     private val _state = MutableStateFlow<MainViewState>(MainViewState.Loading)
     val state: StateFlow<MainViewState> get() = _state
