@@ -23,8 +23,8 @@ import com.plusmobileapps.protobufkotlin.ui.theme.ProtobufKotlinTheme
 import com.plusmobileapps.protobufkotlin.viewmodel.MainViewModel
 import com.plusmobileapps.protobufkotlin.viewmodel.MainViewState
 import dagger.hilt.android.AndroidEntryPoint
-import tutorial.DogOuterClass.Dog
-import tutorial.dog
+import com.plusmobileapps.model.DogOuterClass.Dog
+import com.plusmobileapps.model.dog
 
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {

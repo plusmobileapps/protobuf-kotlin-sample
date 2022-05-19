@@ -8,8 +8,8 @@ import io.ktor.server.application.*
 import io.ktor.server.response.*
 import io.ktor.server.routing.*
 import kotlinx.serialization.Serializable
-import tutorial.dog
-import tutorial.dogsResult
+import com.plusmobileapps.model.dog
+import com.plusmobileapps.model.dogsResult
 
 @Serializable
 data class RandomDogResponse(val message: String, val status: String) {

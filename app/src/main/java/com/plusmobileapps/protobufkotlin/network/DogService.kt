@@ -1,7 +1,7 @@
 package com.plusmobileapps.protobufkotlin.network
 
 import retrofit2.http.GET
-import tutorial.DogOuterClass.DogsResult
+import com.plusmobileapps.model.DogOuterClass.DogsResult
 
 interface DogService {
 

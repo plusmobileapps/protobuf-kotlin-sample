@@ -1,5 +1,5 @@
 syntax = "proto3";
-package tutorial;
+package com.plusmobileapps.model;
 
 message DogsResult {
   repeated Dog dogs = 1;

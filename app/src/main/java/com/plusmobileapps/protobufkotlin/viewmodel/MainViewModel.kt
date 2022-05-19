@@ -7,9 +7,9 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
-import tutorial.DogOuterClass
-import tutorial.DogOuterClass.Dog
-import tutorial.DogOuterClass.DogsResult
+import com.plusmobileapps.model.DogOuterClass
+import com.plusmobileapps.model.DogOuterClass.Dog
+import com.plusmobileapps.model.DogOuterClass.DogsResult
 import javax.inject.Inject
 
 sealed class MainViewState {
