@@ -1,5 +1,7 @@
 package com.plusmobileapps.backend
 
+import com.plusmobileapps.model.dog
+import com.plusmobileapps.model.dogsResult
 import io.ktor.client.*
 import io.ktor.client.call.*
 import io.ktor.client.request.*
@@ -8,8 +10,6 @@ import io.ktor.server.application.*
 import io.ktor.server.response.*
 import io.ktor.server.routing.*
 import kotlinx.serialization.Serializable
-import com.plusmobileapps.model.dog
-import com.plusmobileapps.model.dogsResult
 
 @Serializable
 data class RandomDogResponse(val message: String, val status: String) {
