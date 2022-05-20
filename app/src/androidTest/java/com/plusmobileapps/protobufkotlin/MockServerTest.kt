@@ -19,11 +19,12 @@ import org.junit.After
 import org.junit.Before
 import org.junit.Rule
 import org.junit.runner.RunWith
+import javax.inject.Inject
 
-class MockServerConfig(_port: Int = 8080) : ServerConfig {
+class MockServerConfig @Inject constructor() : ServerConfig {
     override val scheme: String = "http"
     override val host: String = "localhost"
-    override val port: Int? = _port
+    override val port: Int? = 8080
 }
 
 @RunWith(AndroidJUnit4::class)
