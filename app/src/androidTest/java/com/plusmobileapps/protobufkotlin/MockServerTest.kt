@@ -29,6 +29,7 @@ class MockServerConfig @Inject constructor() : ServerConfig {
 
 @RunWith(AndroidJUnit4::class)
 @HiltAndroidTest
+@UninstallModules(ServerConfigModule::class)
 abstract class MockServerTest {
 
     private lateinit var server: MockWebServer
@@ -43,6 +44,9 @@ abstract class MockServerTest {
         breedName = "floofy"
         imageUrl = "some image url"
     }
+
+    @BindValue
+    val serverConfig: ServerConfig = MockServerConfig()
 
     @Before
     fun setUp() {
